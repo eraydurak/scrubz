@@ -37,7 +37,8 @@ const Modal = () => {
       name: member
     };
     setMembers([...members, memberr]);
-    setMember("")
+    setMember("");
+    setSearch("");
   }
 
   const deleteById = (id) => {
