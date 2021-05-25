@@ -76,7 +76,7 @@ const Modal = () => {
               </span> <span>Add Member</span>
             </button>
           </div>
-          {members.length > 0 ? (
+          {filteredMembers.length > 0 ? (
             <div className="person-info">
               {
                 filteredMembers.map((profile) => {
@@ -96,7 +96,7 @@ const Modal = () => {
             </div>
           ) : (
             <div className="nobody">
-              <p>You don't have any member !</p>
+              <p>There is no <span>'{search}'</span> in members. You can add by Add Member button above. </p>
             </div>
           )}
         </div>
