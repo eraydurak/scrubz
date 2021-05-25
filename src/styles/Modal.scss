@@ -1,0 +1,192 @@
+@mixin centered() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -47%);
+  background: #fff;
+  box-shadow: rgba(#dddcea, 0.7);
+  border-radius: 10px;
+  // padding: 25px 10px;
+  max-width: 1138px;
+  min-height: 600px;
+  width: 90%;
+  nav {
+    @include centered();
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.253);
+  }
+}
+.member-area {
+  width: 90%;
+  max-width: 650px;
+  margin: 0 auto;
+  .profile-div {
+    @include centered();
+    justify-content: space-between;
+    border: 1px solid transparent;
+    padding-left: 0;
+    margin: 0 20px;
+    margin-bottom: 5px;
+    height: 60px;
+    &-name {
+      @include centered();
+      span {
+        &:nth-last-child(1) {
+          margin-left: 5px;
+        }
+      }
+    }
+    &:hover {
+      background: rgba(51, 51, 51, 0.13);
+      &.editable {
+        background-color: #fff;
+      }
+    }
+    span {
+      margin-right: 5px;
+      margin-left: 30px;
+    }
+    button {
+      color: #333;
+      font-size: 12px;
+      font-weight: 100;
+      background: #ececf2;
+      border: 1px solid transparent;
+      outline: 0;
+      padding: 5px 10px;
+      border-radius: 5px;
+      position: relative;
+      margin-right: 10px;
+      &:hover {
+        border: 1px solid rgba(51, 51, 51, 0.329);
+      }
+      &:nth-last-child(2) {
+        background: linear-gradient(#6cb7ff, #7985ff);
+        margin-right: 5px;
+        color: #fff;
+      }
+      .afterPopUp {
+        width: 150px;
+        position: absolute;
+        top: 35px;
+        right: 0;
+        box-shadow: 0 0 5px 0px rgba($color: #000000, $alpha: 0.2);
+        background-color: #ffffff;
+        text-align: left;
+        padding: 5px;
+        animation: fadeScaleUp 0.2s ease-in-out;
+        z-index: 1000000;
+        & > div {
+          padding: 8px;
+          @include centered();
+          justify-content: flex-start;
+          font-size: 14px;
+          span {
+            margin-left: 0;
+          }
+          svg {
+            width: 14px;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+  .input-area {
+    @include centered();
+    justify-content: space-between;
+    padding: 20px 20px;
+    input {
+      max-width: 302px;
+      height: 42px;
+      outline: 0;
+      border: 1px solid #ececf2;
+      padding: 5px 10px;
+    }
+    button {
+      padding: 10px 20px;
+      border: 1px solid #ececf2;
+      background: #fff;
+      color: #6390f6;
+      @include centered();
+      span {
+        &:nth-last-child(1) {
+          margin-left: 5px;
+          padding-bottom: 2px;
+        }
+      }
+    }
+  }
+}
+
+.editable-input {
+  border: 1px solid #0484c4;
+  @include centered();
+  padding: 0 0px;
+  height: 100%;
+  border-radius: 5px;
+  flex: 1;
+  span {
+    margin-left: 0;
+  }
+  input {
+    outline: 0;
+    border: 0;
+    width: 100%;
+    background-color: transparent;
+    padding: 5px 5px;
+  }
+  &-buttons {
+    margin-left: 5px;
+    height: 100%;
+    button {
+      height: 100%;
+      min-width: 95px;
+    }
+  }
+}
+@keyframes fadeScaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 375px) and (min-width: 319px) {
+  .member-area {
+    .input-area {
+      width: 100%;
+    }
+  }
+  .editable-input-buttons {
+    width: 30%;
+    button {
+      max-width: 20px;
+      height: 50%;
+      padding: 0;
+    }
+  }
+  .container {
+    h3 {
+      font-size: 14px;
+    }
+  }
+  .container nav ul li {
+    padding-left: 0px;
+    font-size: 12px;
+  }
+
+  .container {
+    top: 45%;
+  }
+}
