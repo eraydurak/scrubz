@@ -10,10 +10,22 @@ const Modal = () => {
 
   const [members, setMembers] = useState(userList.users);
   const [member, setMember] = useState("");
+  const [filteredMembers, setFilteredMembers] = useState([...members])
+  const [search, setSearch] = useState("");
 
   const onChangeHandler = (e) => {
+    setSearch(e.target.value)
     setMember(e.target.value)
   }
+
+
+  useEffect(() => {
+    setFilteredMembers(
+      members.filter((member) =>
+        member.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, members]);
 
   const onClickHandler = (e) => {
     e.preventDefault();
@@ -67,7 +79,7 @@ const Modal = () => {
           {members.length > 0 ? (
             <div className="person-info">
               {
-                members.map((profile) => {
+                filteredMembers.map((profile) => {
                   return (
                     <Profile
                       profile={profile}
